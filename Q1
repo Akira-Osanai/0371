@@ -1,0 +1,124 @@
+import java.util.Random;
+
+public class Main {
+
+	public static void main(String[] args) {
+
+		final int arraySize = 20;
+		int[] array = new int[arraySize];
+		int i;
+		Random random = new Random();
+
+//		要素の代入
+		for (i = 0; i < 12; i++) {
+			array[i] = random.nextInt(100);
+		}
+
+//		ターミネーター（配列の要素の終わりを示す）
+		array[12] = -1;
+
+//		値の表示
+		displayArray(array);
+
+//		合計値、要素の数を表示
+		System.out.println("合計:" + getSum(array));
+
+//		平均値を表示
+		System.out.println("平均:" + getAverage(array));
+
+//		最大値を表示
+		System.out.println("最大値:" + getMax(array));
+
+//		最小値を表示
+		System.out.println("最小値:" + getMin(array));
+		
+		//		//順位付け
+		//		int[] rank = new int[arraySize];
+		//
+		//		for(i=0; i<count; i++) {
+		//			rank[i] = 1;
+		//		}
+		//
+		//		for(i=0; i<count; i++) {
+		//			for(int otherData = 0; otherData<count; otherData++) {
+		//				if(array[i] < array[otherData]) {
+		//					rank[i]++;
+		//				}
+		//			}
+		//		}
+		//
+		//		for(i=0; i<count; i++) {
+		//			String j = String.format("%2d", i);
+		//			String k = String.format("%2d", array[i]);
+		//			String s = String.format("%2d", rank[i]);
+		//			System.out.println("array[" + j + "] = " + k + " : " + s + "位");
+		//		}
+
+		//		public static int getAverage() {
+		//			int total = getSum(total);
+		//
+		//			getElement(arrayCount);
+		//			double average = (double)total / count;
+
+
+	}
+//	配列番号と、配列の要素の値を表示するメソッド
+	private static void displayArray(int a[]) {
+		for (int i = 0; a[i] != -1; i++) {
+			System.out.println("array[" + i + "]=" +a[i]);
+		}
+	}
+
+//	合計値の計算を処理するメソッド
+	public static int getSum(int a[]) {
+		int total = 0;
+		for (int i = 0; a[i] != -1; i++) {
+			total += a[i];
+		}
+		return(total);
+	}
+	
+//	配列数の計算を処理するメソッド
+	public static int getCount(int a[]) {
+		int count = 0;
+		for (int i = 0; a[i] != -1; i++) {
+			count++;
+		}
+		return(count);
+	}
+
+//	平均値の計算を処理するメソッド
+	public static double getAverage(int a[]) {
+		
+		int count = 0;
+		int total = 0;
+		for (int i = 0; a[i] != -1; i++) {
+			total += a[i];
+			count++;
+		}
+		double average = (double)total / count;
+		return(average);
+	}
+	
+//	最大値を求めるメソッド
+	public static int getMax(int a[]) {
+		int max = Integer.MIN_VALUE;
+		for (int i = 0; a[i] != -1; i++) {
+			if(a[i] > max) {
+				max = a[i];
+			}
+		}
+		return(max);
+	}
+	
+//	最小値を求めるメソッド
+	public static int getMin(int a[]) {
+		int min = Integer.MAX_VALUE;
+		for (int i = 0; a[i] != -1; i++) {
+			if(a[i] < min) {
+				min = a[i];
+			}
+		}
+		return(min);
+	}
+}
