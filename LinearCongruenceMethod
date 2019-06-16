@@ -17,7 +17,7 @@ public class Main {
 		System.out.println("線形合同法による、疑似乱数の生成を行います。");
 
 		for(i=0; i < arraysize; i++) {
-			array[i] = random.nextInt(6); 			// 0から5までの疑似乱数を配列の値に格納する
+			array[i] = random.nextInt(5); 			// 0から5までの疑似乱数を配列の値に格納する
 			switch(array[i]) {
 			case 0:
 				oneCount++;
