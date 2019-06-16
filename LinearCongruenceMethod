@@ -1,0 +1,69 @@
+import java.util.Random;
+
+public class Main {
+
+	public static void main(String[] args) {
+		Random random = new Random();
+		final int arraysize = 100; 					// 試行回数の設定
+		int[] array = new int[arraysize];
+		int i; 										// 配列の添え字
+		int oneCount = 0; 							// 1が出た回数をカウント
+		int twoCount = 0;
+		int threeCount = 0;
+		int fourCount = 0;
+		int fiveCount = 0;
+		int sixCount = 0;
+
+		System.out.println("線形合同法による、疑似乱数の生成を行います。");
+
+		for(i=0; i < arraysize; i++) {
+			array[i] = random.nextInt(6); 			// 0から5までの疑似乱数を配列の値に格納する
+			switch(array[i]) {
+			case 0:
+				oneCount++;
+				break;
+			case 1:
+				twoCount++;
+				break;
+			case 2:
+				threeCount++;
+				break;
+			case 3:
+				fourCount++;
+				break;
+			case 4:
+				fiveCount++;
+				break;
+			case 5:
+				sixCount++;
+				break;
+			default:
+				break;
+			}
+			if(i % 10 == 0)							// 配列の値を表示する場合に使用。
+				System.out.println("");				// 見にくいので10の倍数で改行。
+			System.out.print((array[i]+1) +",");	// 1から6の数字として表示するために、出力する配列の値に1を足す。
+		}
+		double totalCount = 						// カウントの総計
+				oneCount + twoCount + threeCount + fourCount + fiveCount + sixCount;
+
+		double oneCountProbability = oneCount / totalCount; // 出目の確率なので小数を扱えるdouble型
+		double twoCountProbability = twoCount / totalCount;
+		double threeCountProbability = threeCount / totalCount;
+		double fourCountProbability = fourCount / totalCount;
+		double fiveCountProbability = fiveCount / totalCount;
+		double sixCountProbability = sixCount / totalCount;
+
+		System.out.println("");
+		System.out.println("");
+		System.out.println("1は"+ oneCount +"回出ました。出目の確率は" + oneCountProbability + "です。");
+		System.out.println("2は"+ twoCount +"回出ました。出目の確率は" + twoCountProbability + "です。");
+		System.out.println("3は"+ threeCount +"回出ました。出目の確率は" + threeCountProbability + "です。");
+		System.out.println("4は"+ fourCount +"回出ました。出目の確率は" + fourCountProbability + "です。");
+		System.out.println("5は"+ fiveCount +"回出ました。出目の確率は" + fiveCountProbability + "です。");
+		System.out.println("6は"+ sixCount +"回出ました。出目の確率は" + sixCountProbability + "です。");
+		System.out.println("");
+
+		System.out.println("表示数は"+ totalCount +"回です。"); // 念のため、カウントした合計を出力する。
+	}
+}
